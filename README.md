@@ -4,13 +4,13 @@
  [Read in Portuguese](#pt-br)
 
 ## Index
-1. [Modification in progress](#modification-in-progress)
+1. [Modifications in progress](#modifications-in-progress)
 2. [The technologies used](#the-technologies-used)
     - [Technologies](#technologies)
 3. [About the Matrix protocol](#about-the-matrix-protocol)
 4. [Bridges, the hearth of the One](#bridges-the-hearth-of-the-one)
 
-## Modification in progress
+## Modifications in progress
 - [ ] Create a Matrix client
 - [ ] Establish communication between client and server
 - [ ] Establish a bridge between any Messenger
