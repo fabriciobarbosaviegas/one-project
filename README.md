@@ -6,7 +6,7 @@
 ## Index
 1. Modification in progress
 2. The technologies used
-    # Technologies
+    - Technologies
 3. About the Matrix protocol
 4. Bridges, the hearth of the One
 
@@ -45,6 +45,13 @@ An important idea in Matrix is interoperability. This means that Matrix is open 
 
 ## O projeto One
 O projeto One tem como proposta criar um messenger unificado para comunicar com todos os sistemas de mensagem (ou a maioria deles), sendo parte do meu final project para completar o CS50 de Harvard.
+
+## Indices
+1. Modificações em progresso
+2. As tecnologias utilizadas
+    - Tecnologias
+3. Sobre o protocolo Matrix
+4. Pontes, o coração do One
 
 ## Modificações em progresso
 
