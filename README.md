@@ -4,11 +4,11 @@
  [Read in Portuguese](#pt-br)
 
 ## Index
-1. Modification in progress
-2. The technologies used
-    - Technologies
-3. About the Matrix protocol
-4. Bridges, the hearth of the One
+1. [Modification in progress](#modification-in-progress)
+2. [The technologies used](#the-technologies-used)
+    - [Technologies](#technologies)
+3. [About the Matrix protocol](#about-the-matrix-protocol)
+4. [Bridges, the hearth of the One](#bridges-the-hearth-of-the-one)
 
 ## Modification in progress
 - [ ] Create a Matrix client
@@ -47,11 +47,11 @@ An important idea in Matrix is interoperability. This means that Matrix is open 
 O projeto One tem como proposta criar um messenger unificado para comunicar com todos os sistemas de mensagem (ou a maioria deles), sendo parte do meu final project para completar o CS50 de Harvard.
 
 ## Indices
-1. Modificações em progresso
-2. As tecnologias utilizadas
-    - Tecnologias
-3. Sobre o protocolo Matrix
-4. Pontes, o coração do One
+1. [Modificações em progresso](#modificações-em-progresso)
+2. [As tecnologias utilizadas](#as-tecnologias-utilizadas)
+    - [Tecnologias](#tecnologias)
+3. [Sobre o protocolo Matrix](#sobre-o-protocolo-matrix)
+4. [Pontes, o coração do One](#pontes-o-coração-do-one)
 
 ## Modificações em progresso
 
