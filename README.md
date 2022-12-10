@@ -71,7 +71,7 @@ O projeto One tem como proposta criar um messenger unificado para comunicar com 
   - [ ] Twitter Direct
 
  ## As tecnologias utilizadas
- Como parte das exigências para que este projeto seja aceito pelo curso, necessito utilizar pelo menos uma tecnoligia aprendida dentro dele, assim, via de regra o backend necessita ser desenvolvido em flask, por mais limitante que isso seja, futuramente, caso queira seguir com o projeto, planejo migra-lo para django.
+ Como parte das exigências para que este projeto seja aceito pelo curso, necessito utilizar pelo menos uma tecnologia aprendida dentro dele, assim, via de regra o backend necessita ser desenvolvido em flask, por mais limitante que isso seja, futuramente, caso queira seguir com o projeto, planejo migra-lo para django.
  
  ### Tecnologias:
 [![Python](https://img.shields.io/badge/-Python-000?&logo=python)](https://github.com/fabriciobarbosaviegas?tab=repositories&q=&type=&language=python)
