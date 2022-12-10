@@ -72,7 +72,7 @@ O projeto One tem como proposta criar um messenger unificado para comunicar com 
 [![CSS](https://img.shields.io/badge/-CSS-000?&logo=css3&logoColor=blue)](https://github.com/fabriciobarbosaviegas?tab=repositories&q=&type=&language=css)
 [![JavaScript](https://img.shields.io/badge/-JavaScript-000?&logo=JavaScript&logoColor=ddc508)](https://github.com/fabriciobarbosaviegas?tab=repositories&q=&type=&language=javascript)
 [![Matrix](https://img.shields.io/badge/-Matrix-000?&logo=Matrix&logoColor=fff)](#sobre-o-protocolo-matrix)
-
+a
  ## Sobre o protocolo Matrix
  Matrix é um armazenamento de conversação descentralizado, em vez de um protocolo de mensagens. Quando você envia uma mensagem no Matrix, ela é replicada em todos os servidores cujos usuários estão participando de uma determinada conversa - da mesma forma que os commits são replicados entre repositórios Git. Não há um único ponto de controle ou falha em uma conversa da Matrix que abrange vários servidores: o ato de comunicação com alguém em outro lugar na Matrix compartilha a propriedade da conversa igualmente com eles. Mesmo que seu servidor fique offline, a conversa pode continuar ininterrupta em outro lugar até que ela retorne. [Leia mais](https://matrix.org/)
 
