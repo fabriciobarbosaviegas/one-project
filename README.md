@@ -1,7 +1,7 @@
 # The One Project
  The One project has a purpose of making a unified messenger to communicate with all message systems (or most of them), is part of my final project to complete Harvard CS50.
  
- [Read in Portuguese](#pt-br)
+ [Leia em português](#pt-br)
 
 ## Index
 1. [Modifications in progress](#modifications-in-progress)
@@ -45,6 +45,8 @@ An important idea in Matrix is interoperability. This means that Matrix is open 
 
 ## O projeto One
 O projeto One tem como proposta criar um messenger unificado para comunicar com todos os sistemas de mensagem (ou a maioria deles), sendo parte do meu final project para completar o CS50 de Harvard.
+
+ [Read in english](#the-one-project)
 
 ## Indices
 1. [Modificações em progresso](#modificações-em-progresso)
