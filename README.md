@@ -3,6 +3,8 @@
  
  [Read in Portuguese](#pt-br)
 
+c
+
  ## Modification in progress
 - [ ] Create a Matrix client
 - [ ] Establish communication between client and server
@@ -28,15 +30,25 @@
 [![JavaScript](https://img.shields.io/badge/-JavaScript-000?&logo=JavaScript&logoColor=ddc508)](https://github.com/fabriciobarbosaviegas?tab=repositories&q=&type=&language=javascript)
 [![Matrix](https://img.shields.io/badge/-Matrix-000?&logo=Matrix&logoColor=fff)](#sobre-o-protocolo-matrix)
 
-## About the Matrix protocoll
+## About the Matrix protocol
+Matrix is really a decentralised conversation store rather than a messaging protocol. When you send a message in Matrix, it is replicated over all the servers whose users are participating in a given conversation - similarly to how commits are replicated between Git repositories. There is no single point of control or failure in a Matrix conversation which spans multiple servers: the act of communication with someone elsewhere in Matrix shares ownership of the conversation equally with them. Even if your server goes offline, the conversation can continue uninterrupted elsewhere until it returns. [Read more](https://matrix.org/)
+
+## Bridges, the hearth of the One
+An important idea in Matrix is interoperability. This means that Matrix is open to exchange data and messages with other platforms using an Open Standard. Thanks to this, you can connect to any shipment independently, which is a fundamental concept for it to work. We call these connections to other platforms bridges. The Matrix core team maintains bridges to Slack, IRC, XMPP and Gitter, and meanwhile the wider Matrix community provides bridges to Telegram, Discord, WhatsApp, Facebook, Hangouts, Signal and more. [Read more](https://matrix.org/bridges)
 
 # PT-BR
 
 ## O projeto One
 O projeto One tem como proposta criar um messenger unificado para comunicar com todos os sistemas de mensagem (ou a maioria deles), sendo parte do meu final project para completar o CS50 de Harvard.
 
-## Modificações em progresso
+ ## Index
+ - [Modificações em progresso](#modificações-em-progresso)
+ - [As tecnologias utilizadas](#as-tecnologias-utilizadas)
+        - [Tecnologias](#tecnologias)
+ - [Sobre o protocolo Matrix](#sobre-o-protocolo-matrix)
+ - [Pontes, o coração do One](#pontes-o-coração-do-one)
 
+## Modificações em progresso
 - [ ] Criar um client Matrix
 - [ ] Estabelecer comunicação entre client e server
 - [ ] Estabelecer uma ponte entre qualquer Messenger
@@ -62,4 +74,7 @@ O projeto One tem como proposta criar um messenger unificado para comunicar com 
 [![Matrix](https://img.shields.io/badge/-Matrix-000?&logo=Matrix&logoColor=fff)](#sobre-o-protocolo-matrix)
 
  ## Sobre o protocolo Matrix
- 
+ Matrix é um armazenamento de conversação descentralizado, em vez de um protocolo de mensagens. Quando você envia uma mensagem no Matrix, ela é replicada em todos os servidores cujos usuários estão participando de uma determinada conversa - da mesma forma que os commits são replicados entre repositórios Git. Não há um único ponto de controle ou falha em uma conversa da Matrix que abrange vários servidores: o ato de comunicação com alguém em outro lugar na Matrix compartilha a propriedade da conversa igualmente com eles. Mesmo que seu servidor fique offline, a conversa pode continuar ininterrupta em outro lugar até que ela retorne. [Leia mais](https://matrix.org/)
+
+## Pontes, o coração do One
+Uma ideia importante em Matrix é a interoperabilidade. Isso significa que a Matrix está aberta para troca de dados e mensagens com outras plataformas usando um Padrão Aberto. Graças a isso o One pode conectar-se a qualquer mensageiro de modo independente sendo esse um conceito fundamental para que ele funcione. Chamamos essas conexões com outras plataformas de pontes. A equipe principal do Matrix mantém pontes para Slack, IRC, XMPP e Gitter e, enquanto isso, a comunidade Matrix mais ampla fornece pontes para Telegram, Discord, WhatsApp, Facebook, Hangouts, Signal e muito mais. [Leia mais](https://matrix.org/bridges/)
