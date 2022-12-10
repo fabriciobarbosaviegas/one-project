@@ -3,9 +3,14 @@
  
  [Read in Portuguese](#pt-br)
 
-c
+## Index
+1. Modification in progress
+2. The technologies used
+    - Technologies
+3. About the Matrix protocol
+4. Bridges, the hearth of the One
 
- ## Modification in progress
+## Modification in progress
 - [ ] Create a Matrix client
 - [ ] Establish communication between client and server
 - [ ] Establish a bridge between any Messenger
@@ -41,14 +46,15 @@ An important idea in Matrix is interoperability. This means that Matrix is open 
 ## O projeto One
 O projeto One tem como proposta criar um messenger unificado para comunicar com todos os sistemas de mensagem (ou a maioria deles), sendo parte do meu final project para completar o CS50 de Harvard.
 
- ## Index
- - [Modificações em progresso](#modificações-em-progresso)
- - [As tecnologias utilizadas](#as-tecnologias-utilizadas)
-        - [Tecnologias](#tecnologias)
- - [Sobre o protocolo Matrix](#sobre-o-protocolo-matrix)
- - [Pontes, o coração do One](#pontes-o-coração-do-one)
+## Indices
+1. Modificações em progresso
+2. As tecnologias utilizadas
+    - Tecnologias
+3. Sobre o protocolo Matrix
+4. Pontes, o coração do One
 
 ## Modificações em progresso
+
 - [ ] Criar um client Matrix
 - [ ] Estabelecer comunicação entre client e server
 - [ ] Estabelecer uma ponte entre qualquer Messenger
@@ -72,7 +78,7 @@ O projeto One tem como proposta criar um messenger unificado para comunicar com 
 [![CSS](https://img.shields.io/badge/-CSS-000?&logo=css3&logoColor=blue)](https://github.com/fabriciobarbosaviegas?tab=repositories&q=&type=&language=css)
 [![JavaScript](https://img.shields.io/badge/-JavaScript-000?&logo=JavaScript&logoColor=ddc508)](https://github.com/fabriciobarbosaviegas?tab=repositories&q=&type=&language=javascript)
 [![Matrix](https://img.shields.io/badge/-Matrix-000?&logo=Matrix&logoColor=fff)](#sobre-o-protocolo-matrix)
-a
+
  ## Sobre o protocolo Matrix
  Matrix é um armazenamento de conversação descentralizado, em vez de um protocolo de mensagens. Quando você envia uma mensagem no Matrix, ela é replicada em todos os servidores cujos usuários estão participando de uma determinada conversa - da mesma forma que os commits são replicados entre repositórios Git. Não há um único ponto de controle ou falha em uma conversa da Matrix que abrange vários servidores: o ato de comunicação com alguém em outro lugar na Matrix compartilha a propriedade da conversa igualmente com eles. Mesmo que seu servidor fique offline, a conversa pode continuar ininterrupta em outro lugar até que ela retorne. [Leia mais](https://matrix.org/)
 
