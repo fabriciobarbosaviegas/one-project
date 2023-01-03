@@ -11,7 +11,7 @@
 4. [Bridges, the hearth of the One](#bridges-the-hearth-of-the-one)
 
 ## Modifications in progress
-- [ ] Install Synapse in cloud
+- [X] Install Synapse in cloud
 - [ ] Create a Matrix client
 - [ ] Establish communication between client and server
 - [ ] Establish a bridge between any Messenger
