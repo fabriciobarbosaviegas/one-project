@@ -12,17 +12,19 @@
 
 ## Modifications in progress
 - [ ] Create a Matrix client
-- [ ] Establish communication between client and server
-- [ ] Establish a bridge between any Messenger
-- [ ] Communicate via text with any Messenger
-- [ ] Establish a bridge between the other Messengers
+    - [ ] Establish communication between client and server
+      - [ ] Make login in existing user
+      - [ ] Register new users
+    - [ ] Establish a bridge between any Messenger
+    - [ ] Communicate via text with any Messenger
+    - [ ] Establish a bridge between the other Messengers
 
-  - [ ] WhatsApp
-  - [ ] Telegram
-  - [ ] Linkedin
-  - [ ] Messenger
-  - [ ] Instagram Direct
-  - [ ] Twitter Direct
+      - [ ] WhatsApp
+      - [ ] Telegram
+      - [ ] Linkedin
+      - [ ] Messenger
+      - [ ] Instagram Direct
+      - [ ] Twitter Direct
 
 ## The technologies used
  As part of the requirements for this project to go through the course, I need to use at least one technology learned within it, so, as a rule, the backend needs to be developed in flask, however limiting this may be, in the future, if you want to continue with the project, I plan to migrate it to django.
@@ -58,17 +60,20 @@ O projeto One tem como proposta criar um messenger unificado para comunicar com 
 ## Modificações em progresso
 
 - [ ] Criar um client Matrix
-- [ ] Estabelecer comunicação entre client e server
-- [ ] Estabelecer uma ponte entre qualquer Messenger
-- [ ] Comunicar via texto com qualquer Messenger
-- [ ] Estabelecer ponte entre os demais Messengers
+  - [ ] Estabelecer comunicação entre client e server
+      - [ ] Fazer login em úsuario existente
+      - [ ] Registrar um novo úsuario
 
-  - [ ] WhatsApp
-  - [ ] Telegram
-  - [ ] Linkedin
-  - [ ] Messenger
-  - [ ] Instagram Direct
-  - [ ] Twitter Direct
+  - [ ] Estabelecer uma ponte entre qualquer Messenger
+  - [ ] Comunicar via texto com qualquer Messenger
+  - [ ] Estabelecer ponte entre os demais Messengers
+
+    - [ ] WhatsApp
+    - [ ] Telegram
+    - [ ] Linkedin
+    - [ ] Messenger
+    - [ ] Instagram Direct
+    - [ ] Twitter Direct
 
  ## As tecnologias utilizadas
  Como parte das exigências para que este projeto seja aceito pelo curso, necessito utilizar pelo menos uma tecnologia aprendida dentro dele, assim, via de regra o backend necessita ser desenvolvido em flask, por mais limitante que isso seja, futuramente, caso queira seguir com o projeto, planejo migra-lo para django.
