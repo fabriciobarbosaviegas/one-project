@@ -11,8 +11,11 @@
 4. [Bridges, the hearth of the One](#bridges-the-hearth-of-the-one)
 
 ## Modifications in progress
-- [ ] Install Synapse in cloud
+- [X] Install Synapse in cloud
 - [ ] Create a Matrix client
+
+  - [ ] Reads Only
+
 - [ ] Establish communication between client and server
 - [ ] Establish a bridge between any Messenger
 - [ ] Communicate via text with any Messenger
@@ -58,8 +61,9 @@ O projeto One tem como proposta criar um messenger unificado para comunicar com 
 
 ## Modificações em progresso
 
-- [ ] Instalar o Synapse na nuvem
+- [X] Instalar o Synapse na nuvem
 - [ ] Criar um client Matrix
+  - [ ] Apenas Leitura
 - [ ] Estabelecer comunicação entre client e server
 - [ ] Estabelecer uma ponte entre qualquer Messenger
 - [ ] Comunicar via texto com qualquer Messenger
