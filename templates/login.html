@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Login in One</title>
+</head>
+<body>
+    {% if response %}
+        <p>{{ response }}</p>
+    {% endif %}
+    <h2>Login in One</h2>
+    <form action="/login" method="post">
+        <label for="username">Username:</label>
+        @<input type="text" name="username" id="username">:<span id="userNameServer"></span>
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password">
+        <select name="homeserver" id="homeserver">
+            <option value="matrix.onemessenger.tk">One Messenger</option>
+            <option value="matrix.org">Matrix</option>
+            <option value="other">Other</option>
+        </select>
+        <div id="otherHomeServer">
+
+        </div>
+        <input type="submit">
+    </form>
+    <p>Don't have a Matrix account? <a href="/register">register here</a></p>
+    <script src="{{ url_for('static', filename='/js/login.js') }}"></script>
+</body>
+</html>
