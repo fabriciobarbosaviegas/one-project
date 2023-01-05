@@ -1,0 +1,93 @@
+/*Aparição do form*/
+form{
+	overflow: hidden;
+	animation-name: fade;
+	animation-duration: 500ms;
+	animation-fill-mode: backwards;
+	animation-delay: 0.2s;
+}
+@keyframes fade{
+	from{
+		opacity: 0;
+		transform: scale(0.9);
+	}
+	to{
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+/*s*/
+p{
+	animation-name: campos;
+	animation-duration: 1s;
+}
+input{
+	animation-name: campos;
+	animation-duration: 1s;
+	animation-fill-mode: backwards;
+}
+@keyframes campos{
+	from{
+		opacity: 0;
+		transform: translateX(-35%);
+	}
+	to{
+		opacity: 1;
+		transform: translateX(0%);
+	}
+}
+
+.form-hide{
+	animation: down 1.2s forwards;
+	animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+@keyframes down{
+	from{
+		transform: translateY(0);
+	}
+	to{
+		transform: translateY(100vh);
+	}
+}
+/* FORM NO-NO */
+form.validate-error {
+  animation: nono 500ms linear, fade paused;
+  animation-iteration-count: 2;
+}
+
+@keyframes nono {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  35% {
+    transform: translateX(-15%);
+  }
+  70% {
+    transform: translateX(15%);
+  }
+}
+
+.squares li{
+	width: 40px;
+	height: 40px;
+	background-color: rgba(255,255,255, 0.15);
+	display: block;
+	position: absolute;
+	bottom: -40px;
+	  animation: up 2s infinite alternate;
+	  z-index:-1
+}
+
+@keyframes up {
+  from {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-800px) rotate(960deg);
+  }
+}

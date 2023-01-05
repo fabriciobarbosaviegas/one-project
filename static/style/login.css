@@ -6,9 +6,16 @@ h2, p{
     text-align: center;
 }
 
-#loginConstainer{
-    border-radius: 0.5rem;
-    width: 50%;
+@media (min-width: 1200px){
+    #loginConstainer{
+        border-radius: 1rem;
+        max-width: 500px;
+        
+    }
+}
+
+section{
+    box-shadow: -7px 10px 14px 2px #0000001f;
 }
 
 form{
