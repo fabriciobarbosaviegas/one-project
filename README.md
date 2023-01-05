@@ -63,18 +63,22 @@ O projeto One tem como proposta criar um messenger unificado para comunicar com 
 
 - [X] Instalar o Synapse na nuvem
 - [ ] Criar um client Matrix
-  - [ ] Apenas Leitura
-- [ ] Estabelecer comunicação entre client e server
-- [ ] Estabelecer uma ponte entre qualquer Messenger
-- [ ] Comunicar via texto com qualquer Messenger
-- [ ] Estabelecer ponte entre os demais Messengers
 
-  - [ ] WhatsApp
-  - [ ] Telegram
-  - [ ] Linkedin
-  - [ ] Messenger
-  - [ ] Instagram Direct
-  - [ ] Twitter Direct
+  - [ ] Estabelecer comunicação entre client e server
+
+      - [X] Sistema de login para um úsuario já existente na rede Matrix
+      - [ ] Registro de um úsuario na rede Matrix
+      
+  - [ ] Estabelecer uma ponte entre qualquer Messenger
+  - [ ] Comunicar via texto com qualquer Messenger
+  - [ ] Estabelecer ponte entre os demais Messengers
+
+    - [ ] WhatsApp
+    - [ ] Telegram
+    - [ ] Linkedin
+    - [ ] Messenger
+    - [ ] Instagram Direct
+    - [ ] Twitter Direct
 
  ## As tecnologias utilizadas
  Como parte das exigências para que este projeto seja aceito pelo curso, necessito utilizar pelo menos uma tecnologia aprendida dentro dele, assim, via de regra o backend necessita ser desenvolvido em flask, por mais limitante que isso seja, futuramente, caso queira seguir com o projeto, planejo migra-lo para django.
