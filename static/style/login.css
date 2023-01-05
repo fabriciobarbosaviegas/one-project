@@ -1,0 +1,36 @@
+body{
+    background-color: black;
+}
+
+h2, p{
+    text-align: center;
+}
+
+#loginConstainer{
+    border-radius: 0.5rem;
+    width: 50%;
+}
+
+form{
+    text-align: center;
+}
+
+.footer-position {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+ }
+
+ footer{
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+}
+
+.gradient{
+    /* Created with https://www.css-gradient.com */
+    background: #9C6CF3;
+    background: -webkit-linear-gradient(top, #9C6CF3, #1656F7);
+    background: -moz-linear-gradient(top, #9C6CF3, #1656F7);
+    background: linear-gradient(to bottom, #9C6CF3, #1656F7);
+}
