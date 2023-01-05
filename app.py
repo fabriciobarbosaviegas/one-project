@@ -24,3 +24,7 @@ def login():
             return render_template("login.html", response=response)
         else:
             return redirect('/')
+
+@app.route("/register", methods=['POST', 'GET'])
+def register():
+    return render_template('register.html')
