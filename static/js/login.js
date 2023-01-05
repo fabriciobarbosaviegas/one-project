@@ -2,7 +2,7 @@ changeUserName();
 
 document.querySelector('#homeserver').addEventListener('change', () => {
     if(document.querySelector('#homeserver').value == 'other'){
-        document.querySelector('#otherHomeServer').innerHTML += '<input type="text" name="newHomeServer" id="newHomeServer" placeholder="matrix.example.com">';
+        document.querySelector('#otherHomeServer').innerHTML += '<input type="text" name="newHomeServer" id="newHomeServer" placeholder="matrix.example.com" required>';
 
         document.querySelector('#newHomeServer').addEventListener('change', () => {
             changeUserName();
@@ -20,7 +20,7 @@ document.querySelector('#username').addEventListener('change', () => {
 
 function changeUserName(){
     let homeserver = getHomeServer();
-    document.querySelector('#userNameServer').innerText = homeserver;
+    document.querySelector('#userNameServer').innerHTML = homeserver;
 }
 
 function getHomeServer(){
