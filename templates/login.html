@@ -20,15 +20,15 @@
     <main>
         <section id="loginConstainer" class="bg-light mt-5 pt-4 pb-4 pr-3 container mb-5">
             <h2 class="mb-5 mt-3">Login in One</h2>
-            <form action="/login" method="post" class="mt-2">
-                <div class="form-outline form-group mb-4">
-                    <span>@</span><input type="text" name="username" id="username" placeholder="username">:<span id="userNameServer"></span>
+            <form action="/login" method="post" class="mt-2 container">
+                <div class="form-outline form-group mb-4 row">
+                    @<input type="text" name="username" id="username" placeholder="username" class="input-group col-sm" required>:<span id="userNameServer"></span>
                 </div>
                 <div class="form-outline mb-4">
-                    <input type="password" name="password" id="password" placeholder="Password">
+                    <input type="password" name="password" id="password" placeholder="Password" class="input-group" required>
                 </div>
                 <div class="form-group container d-flex align-items-center justify-content-center mb-4">
-                    <select name="homeserver" id="homeserver" class="mr-5">
+                    <select name="homeserver" id="homeserver" class="mr-5 input-group">
                         <option value="matrix.onemessenger.tk">One Messenger</option>
                         <option value="matrix.org">Matrix</option>
                         <option value="other">Other</option>
@@ -38,7 +38,7 @@
                     </div>
                 </div>
                 <div class="mb-5">
-                    <input type="submit" class="btn btn-primary">
+                    <input type="submit" class="btn btn-secondary bg-dark">
                 </div>
             </form>
             <p>Don't have a Matrix account? <a href="/register">register here</a></p>
@@ -49,7 +49,7 @@
     <footer class="footer footer-position bg-light">
         <div id="footer-container">
             <p>Developed By <a href="https://fabriciobarbosaviegas.github.io" target="_blank" id="copy" rel="noreferrer">Fabrício Barbosa Viegas</a>. All rights reserved.</p>
-            <a href="https://fabriciobarbosaviegas.github.io" target="_blank"><img src="static/img/logo-fabricio.png" alt="Fabrício Barbosa Viegas" target="_blank" rel="noreferrer" width="2%"></a>
+            <a href="https://fabriciobarbosaviegas.github.io" target="_blank"><img src="static/img/logo-fabricio.png" alt="Fabrício Barbosa Viegas" target="_blank" rel="noreferrer" width="25"></a>
         </div>
     </footer>
     <script src="{{ url_for('static', filename='/js/login.js') }}"></script>
