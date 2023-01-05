@@ -2,7 +2,7 @@ changeUserName();
 
 document.querySelector('#homeserver').addEventListener('change', () => {
     if(document.querySelector('#homeserver').value == 'other'){
-        document.querySelector('#otherHomeServer').innerHTML += '<label for="newHomeServer">New Homeserver:</label><input type="text" name="newHomeServer" id="newHomeServer">';
+        document.querySelector('#otherHomeServer').innerHTML += '<input type="text" name="newHomeServer" id="newHomeServer" placeholder="matrix.example.com">';
 
         document.querySelector('#newHomeServer').addEventListener('change', () => {
             changeUserName();
