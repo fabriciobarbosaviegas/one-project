@@ -11,20 +11,23 @@
 4. [Bridges, the hearth of the One](#bridges-the-hearth-of-the-one)
 
 ## Modifications in progress
+- [X] Install Synapse in cloud
 - [ ] Create a Matrix client
-    - [ ] Establish communication between client and server
-      - [ ] Make login in existing user
-      - [ ] Register new users
-    - [ ] Establish a bridge between any Messenger
-    - [ ] Communicate via text with any Messenger
-    - [ ] Establish a bridge between the other Messengers
+  - [ ] Establish communication between client and server
+    - [X] Login with existing user
+      - [ ] List already existing conversations
+      - [ ] Load message history
+      - [ ] Check and differentiate between read and unread messages
+  - [ ] Establish a bridge between any Messenger
+  - [ ] Communicate via text with any Messenger
+  - [ ] Establish a bridge between the other Messengers
 
-      - [ ] WhatsApp
-      - [ ] Telegram
-      - [ ] Linkedin
-      - [ ] Messenger
-      - [ ] Instagram Direct
-      - [ ] Twitter Direct
+    - [ ] WhatsApp
+    - [ ] Telegram
+    - [ ] Linkedin
+    - [ ] Messenger
+    - [ ] Instagram Direct
+    - [ ] Twitter Direct
 
 ## The technologies used
  As part of the requirements for this project to go through the course, I need to use at least one technology learned within it, so, as a rule, the backend needs to be developed in flask, however limiting this may be, in the future, if you want to continue with the project, I plan to migrate it to django.
@@ -59,11 +62,13 @@ O projeto One tem como proposta criar um messenger unificado para comunicar com 
 
 ## Modificações em progresso
 
+- [X] Instalar o Synapse na nuvem
 - [ ] Criar um client Matrix
   - [ ] Estabelecer comunicação entre client e server
-      - [ ] Fazer login em úsuario existente
-      - [ ] Registrar um novo úsuario
-
+    - [X] Logar como um usuario já existente
+      - [ ] Listar conversas já existentes
+      - [ ] Carregar histórico de mensagens
+      - [ ] Verificar e diferenciar mensagens entre lidas e não lidas
   - [ ] Estabelecer uma ponte entre qualquer Messenger
   - [ ] Comunicar via texto com qualquer Messenger
   - [ ] Estabelecer ponte entre os demais Messengers
