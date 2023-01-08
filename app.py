@@ -20,7 +20,9 @@ def login():
 
         response = userLogin.clientLogin(username, password, f'https://{homeserver}')
         
-        if str(response).find('Logged') < 0:
-            return render_template("login.html", response=response)
+        if hasattr(response, 'message'):
+            print(f'{response.message}')
+
+            return render_template("login.html", response=response.message)
         else:
             return redirect('/')
