@@ -12,11 +12,7 @@
 </head>
 <body class="gradient">
     <header>
-        {% if response %}
-        <div class="alert alert-danger">
-            <p>{{ response }}</p>
-        </div>
-        {% endif %}
+        {% include 'error_alert.html' %}
     </header>
     <main>
         <section id="loginConstainer" class="bg-light mt-5 pt-4 pb-4 pr-3 container mb-5">
