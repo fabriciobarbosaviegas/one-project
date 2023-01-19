@@ -1,8 +1,7 @@
 from flask import Flask, render_template, request, redirect, session
 from flask_session import Session
 from include import userLogin
-import secrets
-
+import requests
 
 
 app = Flask(__name__)
@@ -18,6 +17,7 @@ Session(app)
 
 @app.route("/", methods=['GET', 'POST'])
 def chat():
+
     if not session.get("homeserver"):
         return redirect("/login")
     else:
@@ -41,22 +41,30 @@ def login():
 
         homeserver = homeserver if homeserver.startswith("https://") or homeserver.startswith("http://") else "https://"+homeserver
 
-        response = userLogin.clientLogin(username, password, homeserver)
-        
-        if hasattr(response, 'message'):
-            return render_template("login.html", response=response.message)
+        #response = userLogin.clientLogin(username, password, homeserver)
+        clientRequest = {"type":"m.login.password","identifier":{"type":"m.id.user","user":username},"password":password}
+        response = requests.post(f'{homeserver}/_matrix/client/r0/login', json=clientRequest)
+
+        if response.status_code != 200:
+            return render_template("login.html", response=response.json()['error'])
         else:
-            print(response.access_token)
             session["homeserver"] = homeserver
             session["user_id"] = username
-            session["device_id"] = response.device_id
-            session["access_token"] = response.access_token
+            session["device_id"] = response.json()['device_id']
+            session["access_token"] = response.json()['access_token']
             return redirect('/')
 
 
 
 @app.route("/logout")
 def logout():
-    userLogin.clientLogin(checkLogout=True)
+    response = requests.post(f'{session["homeserver"]}/_matrix/client/r0/logout?access_token={session["access_token"]}')
+    #userLogin.clientLogin(checkLogout=True)
+    
+    if response.status_code != 200:
+        return redirect('/', response='Logout error ocurred')
+    
+    session["logout_status"] = True
+
     session.clear()
     return redirect('/')
