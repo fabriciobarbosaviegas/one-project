@@ -1,27 +1,11 @@
-changeUserName();
-
 document.querySelector('#homeserver').addEventListener('change', () => {
     if(document.querySelector('#homeserver').value == 'other'){
         document.querySelector('#otherHomeServer').innerHTML += '<input type="text" name="newHomeServer" id="newHomeServer" placeholder="matrix.example.com" required>';
-
-        document.querySelector('#newHomeServer').addEventListener('change', () => {
-            changeUserName();
-        })
     }
     else{
         document.querySelector('#otherHomeServer').innerHTML = '';
-        changeUserName();
     }
 })
-
-document.querySelector('#username').addEventListener('change', () => {
-    changeUserName();
-})
-
-function changeUserName(){
-    let homeserver = getHomeServer();
-    document.querySelector('#userNameServer').innerHTML = homeserver;
-}
 
 function getHomeServer(){
     let homeserver;
@@ -42,9 +26,3 @@ function getHomeServer(){
     }
 
 }
-
-document.querySelector('form').addEventListener('submit', () => {
-    event.preventDefault()
-    document.querySelector('#username').value = `@${document.querySelector('#username').value}:${getHomeServer()}`
-    document.querySelector('form').submit()
-})
