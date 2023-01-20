@@ -21,8 +21,10 @@ def chat():
     if not session.get("homeserver"):
         return redirect("/login")
     else:
-        userLogin.clientLogin()
-        return render_template("index.html")
+        #userLogin.clientLogin()
+        joins = requests.get(f'https://matrix.onemessenger.tk/_matrix/client/v3/joined_rooms?access_token={session["access_token"]}')
+
+        return render_template("index.html", rooms=joins.json()['joined_rooms'])
 
 
 
@@ -42,8 +44,13 @@ def login():
         homeserver = homeserver if homeserver.startswith("https://") or homeserver.startswith("http://") else "https://"+homeserver
 
         #response = userLogin.clientLogin(username, password, homeserver)
-        clientRequest = {"type":"m.login.password","identifier":{"type":"m.id.user","user":username},"password":password}
-        response = requests.post(f'{homeserver}/_matrix/client/r0/login', json=clientRequest)
+
+        try:
+            clientRequest = {"type":"m.login.password","identifier":{"type":"m.id.user","user":username},"password":password}
+            response = requests.post(f'{homeserver}/_matrix/client/r0/login', json=clientRequest)
+
+        except:
+            return render_template("login.html", response='A error has ocurred, check homeserver informations!')
 
         if response.status_code != 200:
             return render_template("login.html", response=response.json()['error'])
@@ -59,7 +66,6 @@ def login():
 @app.route("/logout")
 def logout():
     response = requests.post(f'{session["homeserver"]}/_matrix/client/r0/logout?access_token={session["access_token"]}')
-    #userLogin.clientLogin(checkLogout=True)
     
     if response.status_code != 200:
         return redirect('/', response='Logout error ocurred')
