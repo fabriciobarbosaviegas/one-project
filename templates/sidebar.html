@@ -1,0 +1,37 @@
+<aside id="contacts-sidebar" class="list-group list-group-flush bg-light border-end">
+    <header class="list-group-item container pg-2" id="sidebar-header">
+        <div class="row">
+            <figure class="col col-sm-2">
+                <img src="{{ url_for('static', filename='img/avatar.jpg') }}" class="rounded-circle" id="avatar" alt="user" width="50" height="50">
+            </figure>
+            <div class="input-group col">
+                <input class="form-control border-end-0 border" type="text" placeholder="Search..." id="search-input">
+                <span class="input-group-append">
+                    <button class="btn btn-outline-secondary border-start-0 border" name="search" type="button" id="search-btn">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </span>
+            </div>
+        </div>
+    </header>
+    <main id="sidebar-contacts">
+        {% for i in rooms %}
+            <a href="#" class="list-group-item list-group-item-action container sm">
+                <div class="row mt-3">         
+                    <figure class="col col-sm-2 sm">
+                        <img src="{{ url_for('static', filename='img/user1.jpg') }}" class="rounded-circle" alt="user" width="60" height="60">
+                    </figure>
+                    <div class="col">
+                        <div class="d-flex w-100 align-itemns-center justify-content-between">
+                            <strong class="mb-1">{{ i }}</strong>
+                            <small>18:37</small>
+                        </div>
+                        <div class="col-10 mb-1 small">      
+                            Lorem ipsum dolor sit amet consectetur...
+                        </div>
+                    </div>
+                </div>
+            </a>
+        {% endfor %}
+    </main>        
+</aside>
