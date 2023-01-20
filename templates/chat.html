@@ -1,0 +1,114 @@
+<section>
+    <header id="chat-header" class="container">
+        <div class="row">
+            <figure class="col col-sm-1" id="active-chat-avatar">
+                <img src="{{ url_for('static', filename='img/user1.jpg') }}" class="rounded-circle" alt="user" width="50" height="50">
+            </figure>
+            <div class="col mt-1">
+                <div class="d-flex w-100 align-itemns-center justify-content-between">
+                    <h6 class="mb-0">
+                        <strong>Lorem</strong>
+                    </h6>
+                </div>
+                <small>Online</small>                    
+            </div>
+            <div class="col align-end">
+                <button class="btn" name="active-chat-menu">
+                    <i class="fas fa-ellipsis-v"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    <main class="border-start">
+        <fieldset class="container scroll" style="overflow: auto" id="style-1">
+            <ul class="mt-4">
+                <li class="media w-50 mb-3 row">
+                    <div class="media-body ml-3 col">
+                        <div class="bg-light rounded py-2 px-3 mb-2">
+                            <p class="text-small mb-0 text-muted">Molestias alias, adipisci deserunt excepturi dolorem tempora numquam ad officiis nobis, quod sit?</p>
+                            <div class="w-100 align-itemns-center justify-content-between align-end">
+                                <i class="fab fa-whatsapp align-end"></i>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="media w-100 ml-auto mb-3 row send-by-user">
+                    <div class="media-body col">
+                        <div class="first-color rounded py-2 px-3 mb-2">
+                            <p class="text-small mb-0 text-white">Test which is a new approach to have all solutions</p>
+                            <div class="w-100 align-itemns-center justify-content-between align-end">
+                                <i class="fab fa-telegram-plane"></i>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li  class="media w-50 mb-3 row">
+                    <div class="media-body ml-3 col">
+                        <div class="bg-light rounded py-2 px-3 mb-2">
+                            <p class="text-small mb-0 text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas omnis error voluptatum. Necessitatibus ad fuga accusamus, debitis libero cumque perspiciatis reprehenderit unde vitae id labore magni distinctio. Pariatur, rerum? Cum.</p>
+                            <div class="w-100 align-itemns-center justify-content-between align-end">
+                                <i class="fab fa-whatsapp align-end"></i>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="media w-100 ml-auto mb-3 row send-by-user">
+                    <div class="media-body col">
+                        <div class="first-color rounded py-2 px-3 mb-2">
+                            <p class="text-small mb-0 text-white">Test which is a new approach to have all solutions</p>
+                            <div class="w-100 align-itemns-center justify-content-between align-end">
+                                <i class="fab fa-telegram-plane align-end"></i>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="media w-100 ml-auto mb-3 row send-by-user">
+                    <div class="media-body col">
+                        <div class="first-color rounded py-2 px-3 mb-2">
+                            <p class="text-small mb-0 text-white">Test which is a new approach to have all solutions</p>
+                            <div class="w-100 align-itemns-center justify-content-between align-end">
+                                <i class="fab fa-telegram-plane align-end"></i>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li  class="media w-50 mb-3 row">
+                    <div class="media-body ml-3 col">
+                        <div class="bg-light rounded py-2 px-3 mb-2">
+                            <p class="text-small mb-0 text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas omnis error voluptatum. Necessitatibus ad fuga accusamus, debitis libero cumque perspiciatis reprehenderit unde vitae id labore magni distinctio. Pariatur, rerum? Cum.</p>
+                            <div class="w-100 align-itemns-center justify-content-between align-end">
+                                <i class="fab fa-whatsapp align-end"></i>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </fieldset>
+    </main>
+    <footer id="chat-footer" class="container border-start border-top">
+        <div class="input-group mb-3">
+            <form action="/" method="post" class="input-group">
+                <div class="upload chat-footer-btn" id="upload-btn">
+                    <label for="file-upload">
+                        <i class="fas fa-file-upload"></i>
+                    </label>
+                    <input type="file" accept="image/*" id="file-upload" name="file-upload" class="btn chat-footer-btn">
+                </div>
+                <button type="button" class="btn chat-footer-btn mr-2 trigger" name="emoji"><i class="far fa-smile-wink"></i></button>
+                <textarea  name="message" id="message" class="form-control border-end-0 border mt-2"></textarea>
+                <span class="input-group-append mt-2 dropdown">
+                    <select class="border-start-0 border btn" style="background-color: rgb(223, 233, 241); height: 2.4rem;" name="messenger">
+                        <option value="whatsapp">&#xf232;</option>
+                        <option value="telegram">&#xf2c6;</option>
+                        <option value="messenger">&#xf09a;</option>
+                        <option value="instagram">&#xf16d;</option>
+                        <option value="twitter">&#xf099;</option>
+                        <option value="linkedin">&#xf0e1;</option>
+                        <option value="signal">Signal</option>
+                    </select>
+                </span>
+                <button class="btn pt-0 chat-footer-btn" id="send-btn"><i class="fas fa-location-arrow"></i></button>
+            </form>
+        </div>
+    </footer>
+</section>
