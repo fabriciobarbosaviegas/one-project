@@ -1,0 +1,179 @@
+.upload>input {
+    display: none;
+}
+
+.user-avatar{
+    height: 50%;
+    width: 50%;
+}
+
+.border-none{
+    border: none;
+}
+
+*::-webkit-scrollbar-track
+{
+	box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+    opacity: 10%;
+	background-color: #F5F5F5;
+}
+
+*::-webkit-scrollbar
+{
+    opacity: 10%;
+	width: 3px;
+	background-color: #F5F5F5;
+}
+
+*::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #555;
+    opacity: 10%;
+}
+
+.sidebar-message{
+    width: 80%;
+}
+
+.new-message{
+    width: 2rem;
+    height: 2rem;
+    text-align: center;
+    padding-top: 0.3rem;
+    color: white;
+}
+
+.align-end{
+    text-align: end;
+}
+
+.chat-footer-btn{
+    font-size: 1.5rem;
+    align-self: center;
+    
+}
+
+.send-by-user{
+    width: 100%;
+    padding-left: 40%;
+}
+
+.first-color{
+    background-color: black;
+    color: white;
+}
+
+.first-color:hover{
+    background-color: black;
+    color: white;
+}
+
+textarea:hover, 
+input:hover, 
+textarea:active, 
+input:active, 
+textarea:focus, 
+input:focus,
+button:focus,
+button:active,
+button:hover,
+label:focus,
+.btn:active,
+.btn.active
+{
+    outline:0px !important;
+    -webkit-appearance:none;
+    box-shadow: none !important;
+}
+
+#sidebar{
+    padding-right: 0;
+}
+
+aside{
+    background-color: aliceblue;
+    padding-right: 0;
+}
+
+input#search-input {
+    height: 3rem;
+    background-color: rgb(223, 233, 241);
+    color: black;
+}
+
+button#search-btn {
+    height: 3rem;
+    background-color: rgb(223, 233, 241);
+}
+
+select {
+    font-family: 'FontAwesome', 'Second Font name'
+  }
+
+#avatar{
+    cursor: pointer;
+}
+
+#sidebar-header{
+    padding-top: 1.3rem;
+    background-color: aliceblue;
+}
+
+#sidebar-contacts{
+    height: 85vh;
+    overflow-y: scroll;
+}
+
+#chat-container{
+    padding-left: 0;
+}
+
+#chat-header{
+    padding-top: 1.3rem;
+    background-color: aliceblue;
+}
+
+#chat-footer{
+    padding-top: 1.3rem;
+    padding-bottom: 1rem;
+    background-color: aliceblue;
+}
+
+#chat-footer textarea{
+    height: 2rem;
+    background-color: rgb(223, 233, 241);
+    color: black;
+    resize: none;
+    overflow: hidden;
+}
+
+#upload-btn{
+    padding-right: 0.5rem;
+    padding-left: 1rem;
+}
+
+#send{
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+#send-btn{
+    transform: rotate(42deg);
+}
+
+ul, li{
+    text-decoration: none;
+    list-style: none;
+}
+
+fieldset{
+    height: 70vh;
+    overflow-y: scroll;
+}
+
+label{
+    cursor: pointer;
+}
