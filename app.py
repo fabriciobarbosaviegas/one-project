@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, session
 from flask_session import Session
 from include import userLogin
+from include import utils as ut
 import requests
 
 
@@ -22,9 +23,9 @@ def chat():
         return redirect("/login")
     else:
         #userLogin.clientLogin()
-        joins = requests.get(f'https://matrix.onemessenger.tk/_matrix/client/v3/joined_rooms?access_token={session["access_token"]}')
-
-        return render_template("index.html", rooms=joins.json()['joined_rooms'])
+        joins = ut.getJoinedRooms()
+        userAvatar = ut.getAvatar(session['user_id']) if ut.getAvatar(session['user_id']) else 'static/img/default.png'
+        return render_template("index.html", userAvatar=userAvatar, rooms=joins.json()['joined_rooms'])
 
 
 
@@ -56,7 +57,7 @@ def login():
             return render_template("login.html", response=response.json()['error'])
         else:
             session["homeserver"] = homeserver
-            session["user_id"] = username
+            session["user_id"] = response.json()['user_id']
             session["device_id"] = response.json()['device_id']
             session["access_token"] = response.json()['access_token']
             return redirect('/')
