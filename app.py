@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, session
 from flask_session import Session
 from include import userLogin
 from include import utils as ut
+from include import rooms as Rooms
 import requests
 
 
@@ -23,9 +24,12 @@ def chat():
         return redirect("/login")
     else:
         #userLogin.clientLogin()
-        joins = ut.getJoinedRooms()
+        rooms = []
+        for room in ut.getJoinedRooms():
+            rooms.append(Rooms.roomInfo(room))
+
         userAvatar = ut.getAvatar(session['user_id']) if ut.getAvatar(session['user_id']) else 'static/img/default.png'
-        return render_template("index.html", userAvatar=userAvatar, rooms=joins.json()['joined_rooms'])
+        return render_template("index.html", userAvatar=userAvatar, rooms=rooms)
 
 
 
