@@ -6,12 +6,14 @@ from include import utils
 
 def roomInfo(roomId):
     roomType = getRoomType(roomId)
+    print(session['homeserver'])
+    print(roomType)
     return {'room_id':roomId, 'room_name':getRoomName(roomId, roomType), 'room_avatar':getRoomAvatar(roomId, roomType)}
 
 
 
 def getRoomType(roomId):
-    room_type = requests.get("https://matrix.onemessenger.tk/_matrix/client/r0/rooms/"+roomId+"/state/m.room.join_rules?access_token="+session['access_token'])
+    room_type = requests.get(f"{session['homeserver']}/_matrix/client/r0/rooms/{roomId}/state/m.room.join_rules?access_token={session['access_token']}")
     if room_type.status_code == 200:
         room_type = room_type.json()
         return room_type['join_rule']
@@ -23,7 +25,7 @@ def getRoomType(roomId):
 def getRoomName(roomId, roomType):
     if roomType == 'invite':
         avatar = utils.getAvatar(session['user_id'])
-        room_name = requests.get("https://matrix.onemessenger.tk/_matrix/client/r0/rooms/"+roomId+"/members?access_token="+session['access_token'])
+        room_name = requests.get(f"{session['homeserver']}/_matrix/client/r0/rooms/{roomId}/members?access_token={session['access_token']}")
         if room_name.status_code == 200:
 
             for member in room_name.json()['chunk']:
@@ -32,11 +34,15 @@ def getRoomName(roomId, roomType):
             
                     return member['content']['displayname']
     
+        else:
+            print(room_name.json())
+            return roomId
+
     elif roomType == 'error':
         return roomId
 
     else:
-        room_name = requests.get("https://matrix.onemessenger.tk/_matrix/client/r0/rooms/"+roomId+"/state/m.room.name?access_token="+session['access_token'])
+        room_name = requests.get(f"{session['homeserver']}/_matrix/client/r0/rooms/{roomId}/state/m.room.name?access_token={session['access_token']}")
 
         if room_name.status_code == 200:
 
@@ -44,12 +50,16 @@ def getRoomName(roomId, roomType):
 
             return room_name['name']
 
+        else:
+            print(room_name.json())
+            return roomId
+
 
 
 def getRoomAvatar(roomId, roomType):
     if roomType == 'invite':
         avatar = utils.getAvatar(session['user_id'])
-        room_name = requests.get("https://matrix.onemessenger.tk/_matrix/client/r0/rooms/"+roomId+"/members?access_token="+session['access_token'])
+        room_name = requests.get(f"{session['homeserver']}/_matrix/client/r0/rooms/{roomId}/members?access_token={session['access_token']}")
         
         if room_name.status_code == 200:
 
@@ -58,13 +68,16 @@ def getRoomAvatar(roomId, roomType):
                 if utils.convertMXC(member['content']['avatar_url']) != avatar:
             
                     return utils.convertMXC(member['content']['avatar_url'])
-    
+
+        else:
+            print(room_name.json())
+            return roomId
+
     elif roomType == 'error':
         return 'static/img/default.png'
 
     else:
-        room_avatar = requests.get("https://matrix.onemessenger.tk/_matrix/client/r0/rooms/"+roomId+"/state/m.room.avatar?access_token="+session['access_token'])
-
+        room_avatar = requests.get(f"{session['homeserver']}/_matrix/client/r0/rooms/{roomId}/state/m.room.avatar?access_token={session['access_token']}")
         if room_avatar.status_code == 200:
 
             room_avatar = room_avatar.json()
@@ -72,3 +85,6 @@ def getRoomAvatar(roomId, roomType):
             #print(room_avatar['url'])
 
             return utils.convertMXC(room_avatar['url'])
+        else:
+            print(room_avatar.json())
+            return 'static/img/default.png'
