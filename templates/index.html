@@ -1,11 +1,12 @@
 {% extends "layout.html" %}
-<header>
-    {% include 'error_alert.html' %}
-</header>
-<a href="/logout">
-    Logout
-</a>
+
 {% block main %}
+    <header>
+        {% include 'error_alert.html' %}
+    </header>
+    <a href="/logout">
+        Logout
+    </a>
     <div class="row">
         <div class="col col-sm-4" id="sidebar">{% include 'sidebar.html' %}</div>
         <div class="col border-start" id="chat-container">
