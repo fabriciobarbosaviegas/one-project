@@ -6,9 +6,7 @@ from include import utils
 
 def roomInfo(roomId):
     roomType = getRoomType(roomId)
-    print(session['homeserver'])
-    print(roomType)
-    return {'room_id':roomId, 'room_name':getRoomName(roomId, roomType), 'room_avatar':getRoomAvatar(roomId, roomType)}
+    return {'room_id':roomId, 'room_name':getRoomName(roomId, roomType), 'room_avatar':'static/img/default.png' if getRoomAvatar(roomId, roomType) == None else getRoomAvatar(roomId, roomType)}
 
 
 
@@ -23,7 +21,13 @@ def getRoomType(roomId):
 
 
 def getRoomName(roomId, roomType):
-    if roomType == 'invite':
+
+    room_name = requests.get(f"{session['homeserver']}/_matrix/client/r0/rooms/{roomId}/state/m.room.name?access_token={session['access_token']}")
+    
+    if roomType == 'error':
+        return roomId
+    
+    if room_name.status_code != 200:
         avatar = utils.getAvatar(session['user_id'])
         room_name = requests.get(f"{session['homeserver']}/_matrix/client/r0/rooms/{roomId}/members?access_token={session['access_token']}")
         if room_name.status_code == 200:
@@ -38,43 +42,32 @@ def getRoomName(roomId, roomType):
             print(room_name.json())
             return roomId
 
-    elif roomType == 'error':
-        return roomId
-
     else:
-        room_name = requests.get(f"{session['homeserver']}/_matrix/client/r0/rooms/{roomId}/state/m.room.name?access_token={session['access_token']}")
-
-        if room_name.status_code == 200:
-
-            room_name = room_name.json()
-
-            return room_name['name']
-
-        else:
-            print(room_name.json())
-            return roomId
+        return room_name.json()['name']
 
 
 
 def getRoomAvatar(roomId, roomType):
-    if roomType == 'invite':
-        avatar = utils.getAvatar(session['user_id'])
-        room_name = requests.get(f"{session['homeserver']}/_matrix/client/r0/rooms/{roomId}/members?access_token={session['access_token']}")
-        
-        if room_name.status_code == 200:
+    room_avatar = requests.get(f"{session['homeserver']}/_matrix/client/r0/rooms/{roomId}/state/m.room.avatar?access_token={session['access_token']}")
+    print(room_avatar)
+    if roomType == 'error':
+        return 'static/img/default.png'
 
-            for member in room_name.json()['chunk']:
+    if room_avatar.status_code != 200:
+
+        avatar = utils.getAvatar(session['user_id'])
+        room_avatar = requests.get(f"{session['homeserver']}/_matrix/client/r0/rooms/{roomId}/members?access_token={session['access_token']}")
+        print(room_avatar)
+        if room_avatar.status_code == 200:
+
+            for member in room_avatar.json()['chunk']:
             
                 if utils.convertMXC(member['content']['avatar_url']) != avatar:
             
                     return utils.convertMXC(member['content']['avatar_url'])
 
         else:
-            print(room_name.json())
-            return roomId
-
-    elif roomType == 'error':
-        return 'static/img/default.png'
+            return 'static/img/default.png'
 
     else:
         room_avatar = requests.get(f"{session['homeserver']}/_matrix/client/r0/rooms/{roomId}/state/m.room.avatar?access_token={session['access_token']}")
@@ -82,9 +75,6 @@ def getRoomAvatar(roomId, roomType):
 
             room_avatar = room_avatar.json()
 
-            #print(room_avatar['url'])
-
             return utils.convertMXC(room_avatar['url'])
         else:
-            print(room_avatar.json())
             return 'static/img/default.png'
