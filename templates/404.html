@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block main %}
+    <header class="pt-4 pb-4">
+        <strong><h1>WOOF! WOOF!<br>Page Not Found</h1></strong>
+    </header>    
+    <main>
+        <div>
+            <img src="{{ url_for('static', filename='img/sasha.png') }}" alt="Sasha Error 404" class="pb-4" width="180">
+        </div>
+        <a href="/"><button class="btn btn-primary">Go to Main</button></a>
+    </main>
+{% endblock %}
