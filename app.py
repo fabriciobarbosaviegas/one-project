@@ -1,9 +1,11 @@
-from flask import Flask, render_template, request, redirect, session
+from flask import Flask, render_template, request, redirect, session, json
 from flask_session import Session
 from include import userLogin
 from include import utils as ut
 from include import rooms as Rooms
 import requests
+from werkzeug.exceptions import HTTPException
+
 
 
 app = Flask(__name__)
@@ -23,7 +25,6 @@ def chat():
     if not session.get("homeserver"):
         return redirect("/login")
     else:
-        #userLogin.clientLogin()
         rooms = []
         for room in ut.getJoinedRooms():
             rooms.append(Rooms.roomInfo(room))
@@ -79,3 +80,16 @@ def logout():
 
     session.clear()
     return redirect('/')
+
+
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html', errorPage=True), 404
+
+
+
+@app.errorhandler(HTTPException)
+def handle_exception(e):
+
+    return render_template('500.html', errorPage=True)
