@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block main %}
+    {% include 'error_alert.html' %}
+
+    <header class="pt-4 pb-4">
+        <strong><h1>WOOF! WOOF! <br> Server Error!</h1></strong>
+    </header>    
+    <main>
+        <div>
+            <img src="{{ url_for('static', filename='img/costelinha.png') }}" alt="Costelinha Error 500" class="pb-4" width="180">
+        </div>
+        <a href="/"><button class="btn btn-primary">Go to Main</button></a>
+    </main>
+{% endblock %}
