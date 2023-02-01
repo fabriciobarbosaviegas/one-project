@@ -66,7 +66,7 @@ O projeto One tem como proposta criar um messenger unificado para comunicar com 
 - [ ] Criar um client Matrix
   - [ ] Estabelecer comunicação entre client e server
     - [X] Logar como um usuario já existente
-      - [ ] Listar conversas já existentes
+      - [X] Listar conversas já existentes
       - [ ] Carregar histórico de mensagens
       - [ ] Verificar e diferenciar mensagens entre lidas e não lidas
   - [ ] Estabelecer uma ponte entre qualquer Messenger
