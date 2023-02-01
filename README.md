@@ -15,7 +15,7 @@
 - [ ] Create a Matrix client
   - [ ] Establish communication between client and server
     - [X] Login with existing user
-      - [ ] List already existing conversations
+      - [X] List already existing conversations
       - [ ] Load message history
       - [ ] Check and differentiate between read and unread messages
   - [ ] Establish a bridge between any Messenger
@@ -66,7 +66,7 @@ O projeto One tem como proposta criar um messenger unificado para comunicar com 
 - [ ] Criar um client Matrix
   - [ ] Estabelecer comunicação entre client e server
     - [X] Logar como um usuario já existente
-      - [ ] Listar conversas já existentes
+      - [X] Listar conversas já existentes
       - [ ] Carregar histórico de mensagens
       - [ ] Verificar e diferenciar mensagens entre lidas e não lidas
   - [ ] Estabelecer uma ponte entre qualquer Messenger
