@@ -1,9 +1,10 @@
-from flask import Flask, render_template, request, redirect, session, json
+from flask import Flask, render_template, request, redirect, session, json, g
 from flask_session import Session
 from include import userLogin
 from include import utils as ut
 from include import rooms as Rooms
 import requests
+import sqlite3 as sql
 from werkzeug.exceptions import HTTPException
 
 
@@ -19,18 +20,34 @@ Session(app)
 
 
 
+def get_db_connection():
+    DATABASE = 'model/local_informations.sqlite'
+    con = sql.connect(DATABASE)
+    return con
+
+
+
 @app.route("/", methods=['GET', 'POST'])
 def chat():
 
     if not session.get("homeserver"):
         return redirect("/login")
     else:
-        rooms = []
+
+        cur = get_db_connection()
+
         for room in ut.getJoinedRooms():
-            rooms.append(Rooms.roomInfo(room))
+            if cur.execute('SELECT roomId FROM rooms WHERE roomId = ?;', (room,)).fetchall() == []:
+                
+                info = Rooms.roomInfo(room)
+                
+                cur.execute('INSERT INTO rooms(roomId, displayname, avatar) VALUES (?, ?, ?)',
+                (info['room_id'], info['room_name'], info['room_avatar']))
+                cur.commit()
 
         userAvatar = ut.getAvatar(session['user_id']) if ut.getAvatar(session['user_id']) else 'static/img/default.png'
-        return render_template("index.html", userAvatar=userAvatar, rooms=rooms)
+
+        return render_template("index.html", userAvatar=userAvatar, rooms=cur.execute('SELECT * FROM rooms').fetchall())
 
 
 
@@ -76,6 +93,11 @@ def logout():
     if response.status_code != 200:
         return redirect('/', response='Logout error ocurred')
     
+    cur = get_db_connection()
+    cur.execute('DELETE FROM rooms')
+    cur.commit()
+    cur.close()
+
     session["logout_status"] = True
 
     session.clear()
