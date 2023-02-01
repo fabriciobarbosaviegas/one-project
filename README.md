@@ -15,7 +15,7 @@
 - [ ] Create a Matrix client
   - [ ] Establish communication between client and server
     - [X] Login with existing user
-      - [ ] List already existing conversations
+      - [X] List already existing conversations
       - [ ] Load message history
       - [ ] Check and differentiate between read and unread messages
   - [ ] Establish a bridge between any Messenger
