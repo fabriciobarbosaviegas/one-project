@@ -16,14 +16,14 @@
     </header>
     <main id="sidebar-contacts">
         {% for i in rooms %}
-            <a href="/{{ i['room_id'] }}" class="list-group-item list-group-item-action container sm">
+            <a href="/{{ i[1] }}" class="list-group-item list-group-item-action container sm">
                 <div class="row mt-3">         
                     <figure class="col col-sm-2 sm">
-                        <img src="{{ i['room_avatar'] }}" class="rounded-circle" alt="user" width="60" height="60">
+                        <img src="{{ i[3] }}" class="rounded-circle" alt="user" width="60" height="60">
                     </figure>
                     <div class="col">
                         <div class="d-flex w-100 align-itemns-center justify-content-between">
-                            <strong class="mb-1">{{ i['room_name'] }}</strong>
+                            <strong class="mb-1">{{ i[2] }}</strong>
                             <small>18:37</small>
                         </div>
                         <div class="col-10 mb-1 small">      
