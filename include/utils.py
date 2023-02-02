@@ -43,8 +43,3 @@ def convertTime(timestamp):
         return time.strftime("%A")[0:3]
     else:
         return date
-
-
-
-def hello(name):
-    return f'Hello, {name}'
