@@ -1,5 +1,6 @@
 import requests
 from flask import session
+from datetime import datetime, timedelta
 
 
 def getAvatar(userName):
@@ -27,3 +28,23 @@ def getJoinedRooms():
             return joins.json()['joined_rooms']
         else:
             return []
+
+
+
+def convertTime(timestamp):
+    time = datetime.fromtimestamp(timestamp / 1000)
+    date = time.strftime("%Y/%m/%d")
+    today = datetime.today()
+    lastWeek = datetime.today() - timedelta(days = 7)
+
+    if date == today.strftime("%Y/%m/%d"):
+        return time.strftime("%H:%M")
+    elif time >= lastWeek:
+        return time.strftime("%A")[0:3]
+    else:
+        return date
+
+
+
+def hello(name):
+    return f'Hello, {name}'
