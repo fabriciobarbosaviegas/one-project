@@ -3,6 +3,7 @@ from flask_session import Session
 from include import userLogin
 from include import utils as ut
 from include import rooms as Rooms
+from include import messages
 import requests
 import sqlite3 as sql
 from werkzeug.exceptions import HTTPException
@@ -35,8 +36,11 @@ def chat():
     else:
 
         cur = get_db_connection()
+        message = []
 
         for room in ut.getJoinedRooms():
+            message.append(messages.getMessages(room, 1))
+
             if cur.execute('SELECT roomId FROM rooms WHERE roomId = ?;', (room,)).fetchall() == []:
                 
                 info = Rooms.roomInfo(room)
@@ -46,8 +50,8 @@ def chat():
                 cur.commit()
 
         userAvatar = ut.getAvatar(session['user_id']) if ut.getAvatar(session['user_id']) else 'static/img/default.png'
-
-        return render_template("index.html", userAvatar=userAvatar, rooms=cur.execute('SELECT * FROM rooms').fetchall())
+        print(message)
+        return render_template("index.html", userAvatar=userAvatar, rooms=cur.execute('SELECT * FROM rooms').fetchall(), message=message)
 
 
 
