@@ -12,7 +12,7 @@ def getMessages(room, limit=0):
     message = requests.get( f"{session['homeserver']}/_matrix/client/r0/rooms/{room}/messages?dir=b", headers=headers)
 
     if message.status_code == 200:
-        messagesContent = {"room":room,"content":[], "sender":[], "time":[]}
+        messagesContent = {"room":room,"content":[], "preview":[], "sender":[], "time":[]}
         messages = message.json()["chunk"]
 
         if isCypher(messages):
@@ -25,6 +25,7 @@ def getMessages(room, limit=0):
             if limit == 0:
                 for message in messages:
                     messagesContent['content'].append(message['content']['body'])
+                    messagesContent['preview'].append(message['content']['body'] if len(message['content']['body']) > 15 else message['content']['body'][0:15]+'...')
                     messagesContent['sender'].append(message['sender'] if message['sender'] != session['user_id'] else 'you')
                     messagesContent['time'].append(ut.convertTime(message['origin_server_ts']))
 
@@ -35,6 +36,7 @@ def getMessages(room, limit=0):
                 for message in messages:
                     c += 1
                     messagesContent['content'].append(message['content']['body'])
+                    messagesContent['preview'].append(message['content']['body'] if len(message['content']['body']) < 15 else message['content']['body'][0:15]+'...')
                     messagesContent['sender'].append(message['sender'] if message['sender'] != session['user_id'] else 'you')
                     messagesContent['time'].append(ut.convertTime(message['origin_server_ts']))
 
