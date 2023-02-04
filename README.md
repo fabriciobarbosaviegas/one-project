@@ -3,7 +3,7 @@
  
  [Leia em português](#pt-br)
 
-## Index
+## Table of Contents
 1. [Modifications in progress](#modifications-in-progress)
 2. [The technologies used](#the-technologies-used)
     - [Technologies](#technologies)
