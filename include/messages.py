@@ -12,7 +12,7 @@ def getMessages(room, limit=0):
     message = requests.get( f"{session['homeserver']}/_matrix/client/r0/rooms/{room}/messages?dir=b", headers=headers)
 
     if message.status_code == 200:
-        messagesContent = {room:{"content":[], "sender":[], "time":[]}}
+        messagesContent = {"room":room,"content":[], "sender":[], "time":[]}
         messages = message.json()["chunk"]
 
         if isCypher(messages):
@@ -24,9 +24,9 @@ def getMessages(room, limit=0):
         else:
             if limit == 0:
                 for message in messages:
-                    messagesContent[room]['content'].append(message['content']['body'])
-                    messagesContent[room]['sender'].append(message['sender'] if message['sender'] != session['user_id'] else 'you')
-                    messagesContent[room]['time'].append(ut.convertTime(message['origin_server_ts']))
+                    messagesContent['content'].append(message['content']['body'])
+                    messagesContent['sender'].append(message['sender'] if message['sender'] != session['user_id'] else 'you')
+                    messagesContent['time'].append(ut.convertTime(message['origin_server_ts']))
 
             else:
 
@@ -34,10 +34,9 @@ def getMessages(room, limit=0):
 
                 for message in messages:
                     c += 1
-
-                    messagesContent[room]['content'].append(message['content']['body'])
-                    messagesContent[room]['sender'].append(message['sender'] if message['sender'] != session['user_id'] else 'you')
-                    messagesContent[room]['time'].append(ut.convertTime(message['origin_server_ts']))
+                    messagesContent['content'].append(message['content']['body'])
+                    messagesContent['sender'].append(message['sender'] if message['sender'] != session['user_id'] else 'you')
+                    messagesContent['time'].append(ut.convertTime(message['origin_server_ts']))
 
                     if c == limit:
                         break
