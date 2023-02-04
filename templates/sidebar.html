@@ -22,19 +22,27 @@
                             <img src="{{ i[3] }}" class="rounded-circle" alt="user" width="60" height="60">
                         </figure>
                         <div class="col">
-                            {% for j in messages %}
-                            {% if j['room'] == i[1] %}
                             <div class="d-flex w-100 align-itemns-center justify-content-between">
                                 <strong class="mb-1">{{ i[2] }}</strong>
-                                <small>
-                                    {{ j['time'][0] }}
-                                </small>
-                            </div>
-                            <div class="col-10 mb-1 small">      
-                                Lorem ipsum dolor, sit amet consectetur adipisicing elit...
-                            </div>
-                            {% endif %}
-                            {% endfor %}
+                                {% for j in messages %}
+                                    {% if j['room'] == i[1] %}
+                                        {% if j['content'] != [] %}
+                                            <small>
+                                                {{ j['time'][0] }}
+                                            </small>
+                                            </div>
+                                            <div class="col-10 mb-1 small">      
+                                                {{ j['sender'][0] }}: {{ j['preview'][0] }}
+                                            </div>
+                                        {% else %}
+                                            <small>
+                                            </small>
+                                            </div>
+                                            <div class="col-10 mb-1 small">      
+                                            </div>                                       
+                                        {% endif %}
+                                    {% endif %}
+                                {% endfor %}
                         </div>
                     </div>
                 </a>
