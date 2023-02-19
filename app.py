@@ -26,8 +26,6 @@ def get_db_connection():
     con = sql.connect(DATABASE)
     return con
 
-
-
 @app.route("/", methods=['GET', 'POST'])
 def chat():
 
@@ -50,7 +48,6 @@ def chat():
                 cur.commit()
 
         userAvatar = ut.getAvatar(session['user_id']) if ut.getAvatar(session['user_id']) else 'static/img/default.png'
-        print(message)
         return render_template("index.html", userAvatar=userAvatar, rooms=cur.execute('SELECT * FROM rooms').fetchall(), messages=message)
 
 
