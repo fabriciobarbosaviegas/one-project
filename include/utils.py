@@ -3,6 +3,7 @@ from flask import session
 from datetime import datetime, timedelta
 
 
+
 def getAvatar(userName):
     iam = requests.get(f'{session["homeserver"]}/_matrix/client/v3/profile/{userName}')
     if 'avatar_url' in iam.json():
