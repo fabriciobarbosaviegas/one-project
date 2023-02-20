@@ -10,7 +10,11 @@
     <div class="row">
         <div class="col col-sm-4" id="sidebar">{% include 'sidebar.html' %}</div>
         <div class="col border-start" id="chat-container">
-            <h1 align="center">Select a user to talk</h1>
+            {% if current_chat %}
+                {% include 'chat.html' %}
+            {% else %}
+                <h1 align="center">Select a user to talk</h1>
+            {% endif %}
         </div>
     </div>
 {% endblock %}
