@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, session, json, g
 from flask_session import Session
+from flask_sockets import Sockets
 from include import userLogin
 from include import utils as ut
 from include import rooms as Rooms
@@ -28,13 +29,36 @@ def get_db_connection():
 
 @app.route("/", methods=['GET', 'POST'])
 def chat():
+    if request.method == "GET":
+        if not session.get("homeserver"):
+            return redirect("/login")
+        else:
 
-    if not session.get("homeserver"):
-        return redirect("/login")
+            cur = get_db_connection()
+            message = []
+
+            for room in ut.getJoinedRooms():
+                message.append(messages.getMessages(room, 1))
+
+                if cur.execute('SELECT roomId FROM rooms WHERE roomId = ?;', (room,)).fetchall() == []:
+                    
+                    info = Rooms.roomInfo(room)
+                    
+                    cur.execute('INSERT INTO rooms(roomId, displayname, avatar) VALUES (?, ?, ?)',
+                    (info['room_id'], info['room_name'], info['room_avatar']))
+                    cur.commit()
+            print(message)
+            userAvatar = ut.getAvatar(session['user_id']) if ut.getAvatar(session['user_id']) else 'static/img/default.png'
+            return render_template("index.html", userAvatar=userAvatar, rooms=cur.execute('SELECT * FROM rooms').fetchall(), messages=message)
+        
     else:
 
         cur = get_db_connection()
         message = []
+
+        current_chat = request.form["roomid"]
+        
+        print(current_chat)
 
         for room in ut.getJoinedRooms():
             message.append(messages.getMessages(room, 1))
@@ -48,8 +72,8 @@ def chat():
                 cur.commit()
 
         userAvatar = ut.getAvatar(session['user_id']) if ut.getAvatar(session['user_id']) else 'static/img/default.png'
-        return render_template("index.html", userAvatar=userAvatar, rooms=cur.execute('SELECT * FROM rooms').fetchall(), messages=message)
-
+        return render_template("index.html", userAvatar=userAvatar, rooms=cur.execute('SELECT * FROM rooms').fetchall(), messages=message, current_chat=current_chat)
+    
 
 
 @app.route("/login", methods=['GET', 'POST'])
