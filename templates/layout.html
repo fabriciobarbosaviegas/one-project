@@ -14,6 +14,7 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='style/style.css') }}">
     {% endif %}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <title>One</title>
 </head>
 <body style="overflow: hidden;">
@@ -21,25 +22,7 @@
     <main>
         {% block main %}{% endblock %}
     </main>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@joeattardi/emoji-button@3.0.3/dist/index.min.js"></script>
-    <script>
-        let contacts = document.querySelector("#sidebar-contacts").querySelectorAll("a")
-
-        for(i = 0; i < contacts.length; i++){
-            contacts[i].addEventListener("click", (e) => {
-                let room_id = window.location.href.split("/")
-                room_id = room_id[room_id.length - 1]
-                console.log(room_id)
-
-                $.ajax({
-                    type: "POST",
-                    url: "/",
-                    roomid: room_id,
-                });
-            });
-        }        
-    </script>
 </body>
 </html>
