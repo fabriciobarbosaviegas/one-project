@@ -64,7 +64,7 @@ def isCypher(messages):
 
 def getContent(message):
     if message['type'] == 'm.room.message':
-        return message['content']['body'] + " the chat!"
+        return message['content']['body']
     elif message['type'] == 'm.room.member':
         return message['content']['membership'] + " the chat!"
     return ''
