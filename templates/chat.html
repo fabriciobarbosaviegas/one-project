@@ -2,15 +2,15 @@
     <header id="chat-header" class="container">
         <div class="row">
             <figure class="col col-sm-1" id="active-chat-avatar">
-                <img src="{{ url_for('static', filename='img/user1.jpg') }}" class="rounded-circle" alt="user" width="50" height="50">
+                <img src="{{ url_for('static', filename='img/default.png') }}" class="rounded-circle" alt="user" width="50" height="50" id="chat-avatar">
             </figure>
             <div class="col mt-1">
                 <div class="d-flex w-100 align-itemns-center justify-content-between">
                     <h6 class="mb-0">
-                        <strong>Lorem</strong>
+                        <strong id="displayname">Select user to talk</strong>
                     </h6>
                 </div>
-                <small>Online</small>                    
+                <small id="status"></small>                    
             </div>
             <div class="col align-end">
                 <button class="btn" name="active-chat-menu">
@@ -20,68 +20,9 @@
         </div>
     </header>
     <main class="border-start">
-        <fieldset class="container scroll" style="overflow: auto" id="style-1">
-            <ul class="mt-4">
-                <li class="media w-50 mb-3 row">
-                    <div class="media-body ml-3 col">
-                        <div class="bg-light rounded py-2 px-3 mb-2">
-                            <p class="text-small mb-0 text-muted">Molestias alias, adipisci deserunt excepturi dolorem tempora numquam ad officiis nobis, quod sit?</p>
-                            <div class="w-100 align-itemns-center justify-content-between align-end">
-                                <i class="fab fa-whatsapp align-end"></i>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li class="media w-100 ml-auto mb-3 row send-by-user">
-                    <div class="media-body col">
-                        <div class="first-color rounded py-2 px-3 mb-2">
-                            <p class="text-small mb-0 text-white">Test which is a new approach to have all solutions</p>
-                            <div class="w-100 align-itemns-center justify-content-between align-end">
-                                <i class="fab fa-telegram-plane"></i>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li  class="media w-50 mb-3 row">
-                    <div class="media-body ml-3 col">
-                        <div class="bg-light rounded py-2 px-3 mb-2">
-                            <p class="text-small mb-0 text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas omnis error voluptatum. Necessitatibus ad fuga accusamus, debitis libero cumque perspiciatis reprehenderit unde vitae id labore magni distinctio. Pariatur, rerum? Cum.</p>
-                            <div class="w-100 align-itemns-center justify-content-between align-end">
-                                <i class="fab fa-whatsapp align-end"></i>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li class="media w-100 ml-auto mb-3 row send-by-user">
-                    <div class="media-body col">
-                        <div class="first-color rounded py-2 px-3 mb-2">
-                            <p class="text-small mb-0 text-white">Test which is a new approach to have all solutions</p>
-                            <div class="w-100 align-itemns-center justify-content-between align-end">
-                                <i class="fab fa-telegram-plane align-end"></i>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li class="media w-100 ml-auto mb-3 row send-by-user">
-                    <div class="media-body col">
-                        <div class="first-color rounded py-2 px-3 mb-2">
-                            <p class="text-small mb-0 text-white">Test which is a new approach to have all solutions</p>
-                            <div class="w-100 align-itemns-center justify-content-between align-end">
-                                <i class="fab fa-telegram-plane align-end"></i>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li  class="media w-50 mb-3 row">
-                    <div class="media-body ml-3 col">
-                        <div class="bg-light rounded py-2 px-3 mb-2">
-                            <p class="text-small mb-0 text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas omnis error voluptatum. Necessitatibus ad fuga accusamus, debitis libero cumque perspiciatis reprehenderit unde vitae id labore magni distinctio. Pariatur, rerum? Cum.</p>
-                            <div class="w-100 align-itemns-center justify-content-between align-end">
-                                <i class="fab fa-whatsapp align-end"></i>
-                            </div>
-                        </div>
-                    </div>
-                </li>
+        <fieldset class="container scroll" style="overflow: auto" id="chat">
+            <ul class="mt-4" id="messages">
+
             </ul>
         </fieldset>
     </main>
@@ -112,3 +53,65 @@
         </div>
     </footer>
 </section>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    let contacts = document.querySelector("#sidebar-contacts").querySelectorAll("a")
+
+    for(i = 0; i < contacts.length; i++){
+        contacts[i].addEventListener("click", (e) => {
+            document.querySelector("#messages").innerHTML = ""
+            document.querySelector("#chat-avatar").src = "static/default.png"
+            document.querySelector("#displayname").innerText = "Loading..."
+            
+            let room_id = window.location.href.split("/")
+            room_id = room_id[room_id.length - 1]
+            console.log(room_id)
+
+            $.getJSON({{ request.script_root|tojson }} + '/_loadchat', {
+                room_id: room_id
+            }, function(data) {
+                document.querySelector("#chat-avatar").src = data["avatar"]
+                document.querySelector("#displayname").innerText = data["displayname"]
+                console.log(data["messages"])
+                load_messages(data["messages"][0])
+            })
+        });
+    }
+
+    function load_messages(messages){
+        for(i = 0; i < messages["content"].length; i++){
+            if(messages["sender"][i] == "you"){
+                if(messages["content"][i] != ""){
+                    document.querySelector("#messages").innerHTML += `
+                    <li class="media w-100 ml-auto mb-3 row send-by-user">
+                        <div class="media-body col">
+                            <div class="first-color rounded py-2 px-3 mb-2">
+                                <p class="text-small mb-0 text-white" id="message">${messages["content"][i]}</p>
+                                <div class="w-100 align-itemns-center justify-content-between align-end" id="origin-icon">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    `
+                }
+            }
+            else{
+                if(messages["content"][i] != ""){
+                    document.querySelector("#messages").innerHTML += `
+                    <li class="media w-50 mb-3 row">
+                        <div class="media-body ml-3 col">
+                            <div class="bg-light rounded py-2 px-3 mb-2">
+                                <p class="text-small mb-0 text-muted" id="your-message">${messages["content"][i]}</p>
+                                <div class="w-100 align-itemns-center justify-content-between align-end" id="origin-icon">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    `
+                }
+            }
+        }  
+    }
+</script>
